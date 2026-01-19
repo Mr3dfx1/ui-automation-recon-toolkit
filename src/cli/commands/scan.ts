@@ -1,4 +1,6 @@
 import { Command } from "commander";
+import { scanUrl } from "../../recon/scanPage";
+import { writeJsonReport } from "../../reporting/writeJsonReport";
 
 function parseUrl(raw: string): URL {
   let url: URL;
@@ -24,11 +26,13 @@ export function registerScanCommand(program: Command): void {
     .option("-o, --output <dir>", "Output directory", "reports")
     .option("--headed", "Run browser in headed mode", false)
     .action(async (rawUrl: string, options: { output: string; headed: boolean }) => {
-      const url = parseUrl(rawUrl);
+      const url = parseUrl(rawUrl).toString();
 
-      console.log(`[recon] scan starting`);
-      console.log(`  url: ${url.toString()}`);
-      console.log(`  output: ${options.output}`);
-      console.log(`  headed: ${options.headed}`);
+      console.log(`[recon] scanning: ${url}`);
+      const report = await scanUrl(url, options.headed);
+
+      const outPath = await writeJsonReport(options.output, report);
+      console.log(`[recon] wrote report: ${outPath}`);
+      console.log(`[recon] counts:`, report.counts);
     });
 }
