@@ -1,0 +1,35 @@
+{
+  "name": "ui-automation-recon-toolkit",
+  "version": "1.0.0",
+  "description": "> 🚧 This project is under active development. Initial MVP focuses on DOM scanning and locator generation.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "recon": "ts-node src/cli/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/playwright-recon-toolkit/ui-automation-recon-toolkit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://bitbucket.org/playwright-recon-toolkit/ui-automation-recon-toolkit/issues"
+  },
+  "homepage": "https://bitbucket.org/playwright-recon-toolkit/ui-automation-recon-toolkit#readme",
+  "dependencies": {
+    "commander": "^14.0.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
