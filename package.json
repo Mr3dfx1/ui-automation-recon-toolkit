@@ -1,15 +1,16 @@
 {
   "name": "ui-automation-recon-toolkit",
   "version": "1.0.0",
-  "description": "> 🚧 This project is under active development. Initial MVP focuses on DOM scanning and locator generation.",
+  "description": "> 🚧 This project is under active development.",
   "main": "index.js",
   "directories": {
     "test": "tests"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "recon": "ts-node src/cli/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest",
+    "test:run": "vitest run",
+    "recon": "ts-node src/cli/index.ts"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "@playwright/test": "^1.57.0",
     "@types/node": "^25.0.9",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.17"
   }
 }
