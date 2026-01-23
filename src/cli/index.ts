@@ -9,6 +9,7 @@
  * executed as a Node.js CLI.
  */
 import { Command } from "commander";
+import { registerGenCommand } from "./commands/gen";
 import { registerScanCommand } from "./commands/scan";
 
 /**
@@ -33,9 +34,10 @@ export function buildCli(): Command {
 
   program
     .name("recon")
-    .description("UI automation recon toolkit (Playwright + TypeScript)")
-    .version("0.1.0");
+    .description("Automation Recon Toolkit")
+    .version("0.1.1");
 
+  registerGenCommand(program);
   registerScanCommand(program);
 
   return program;
